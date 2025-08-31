@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BISWAKARMA PUJA 2025 - Art Competition</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      text-align: center;
+      background: url('biswakarma.jpg') no-repeat center center fixed;
+      background-size: cover;
+      overflow-x: hidden;
+    }
+    header {
+      background-color: rgba(179, 0, 0, 0.8);
+      color: white;
+      padding: 20px;
+      position: relative;
+    }
+    .logo {
+      max-width: 120px;
+      animation: blink 1.5s infinite;
+    }
+    @keyframes blink {
+      50% { opacity: 0; }
+    }
+    h1, h2 {
+      margin: 10px 0;
+      text-shadow: 2px 2px 5px black;
+    }
+    section {
+      padding: 20px;
+    }
+    iframe {
+      border: 2px solid #b30000;
+      border-radius: 10px;
+      width: 90%;
+      max-width: 800px;
+      height: 900px;
+      background-color: rgba(255, 255, 255, 0.85);
+    }
+    footer {
+      margin-top: 30px;
+      background-color: rgba(230, 242, 255, 0.8);
+      padding: 10px;
+      color: #333;
+    }
+
+    /* Fireworks */
+    .firework {
+      position: fixed;
+      width: 5px;
+      height: 5px;
+      background: transparent;
+      border-radius: 50%;
+      animation: explode 1.5s ease-out infinite;
+    }
+    @keyframes explode {
+      0% { transform: scale(0); opacity: 1; }
+      100% { transform: scale(5); opacity: 0; }
+    }
+
+    /* Music button */
+    #music-btn {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: #b30000;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      font-size: 16px;
+      box-shadow: 0px 0px 10px rgba(0,0,0,0.5);
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <img src="apdcl.png" alt="APDCL Logo" class="logo">
+    <h1>KANCH ELECTRICAL CIRCLE</h1>
+    <img src="apdcl.png" alt="APDCL Logo" class="logo">
+    <h2>Art Competition on the Occasion of BISWAKARMA PUJA 2025</h2>
+  </header>
+
+  <section>
+    <h2>Register Here</h2>
+    <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSf4J3DEeG8O08-XnIuQG0YEMTeBP0VwLbdyfjtrtxkZ3Z2JCw/viewform?embedded=true" 
+            frameborder="0" marginheight="0" marginwidth="0">
+      Loading…
+    </iframe>
+  </section>
+
+  <footer>
+    <p>© 2025 Kanch Electrical Circle | Biswakarma Puja Art Competition</p>
+  </footer>
+
+  <!-- Music -->
+  <audio id="bg-music" autoplay loop muted>
+    <source src="music.mp3" type="audio/mpeg">
+    Your browser does not support the audio element.
+  </audio>
+  <button id="music-btn" onclick="playMusic()">🎵 Play Music</button>
+
+  <script>
+    function playMusic() {
+      let music = document.getElementById("bg-music");
+      music.muted = false;
+      music.play();
+      document.getElementById("music-btn").innerText = "🎶 Playing";
+    }
+
+    // Fireworks generator
+    function createFirework() {
+      const firework = document.createElement("div");
+      firework.className = "firework";
+      firework.style.left = Math.random() * window.innerWidth + "px";
+      firework.style.top = Math.random() * window.innerHeight + "px";
+      firework.style.background = `hsl(${Math.random()*360},100%,50%)`;
+      document.body.appendChild(firework);
+      setTimeout(() => { firework.remove(); }, 1500);
+    }
+    setInterval(createFirework, 500);
+  </script>
+</body>
+</html>
